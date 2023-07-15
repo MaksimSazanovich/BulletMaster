@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class PlayerBulletCollision : MonoBehaviour
+public class BulletCollision : MonoBehaviour
 {
     [SerializeField] private int damage = 1;
 
@@ -13,9 +13,9 @@ public class PlayerBulletCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out EnemyHealth enemy))
+        if (collision.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            enemy.ApplyDamage(damage);
+            damageable.ApplyDamage(damage);
             //Instantiate(impactEffect, transform.position, transform.rotation);
         }
         ResetObject();

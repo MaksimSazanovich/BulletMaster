@@ -36,7 +36,7 @@ public class ObjectsPool : MonoBehaviour
 
     public virtual GameObject GetRandomObject()
     {
-        int i = Random.Range(0, objects.Count);
+        int i = Random.Range(0, objects.Count - 1);
         if (!objects[i].activeInHierarchy)
             return objects[i];
         return GetRandomObject();

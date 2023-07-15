@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using Zenject;
 
 public class EnemyHealth : UnitHealth
 {
+    public event Action OnDie;
     public override void ApplyDamage(int damage)
 	{
 		base.ApplyDamage(damage);
@@ -12,6 +11,7 @@ public class EnemyHealth : UnitHealth
 
     public override void Die()
 	{
+        OnDie?.Invoke();
         transform.rotation = Quaternion.identity;
         gameObject.SetActive(false);
     }

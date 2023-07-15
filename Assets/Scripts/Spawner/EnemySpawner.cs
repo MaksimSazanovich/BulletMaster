@@ -28,7 +28,6 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         getRandomEnemyTransformStrategy = new GetRandomMeleeEnemyTransformStrategy();
-        Debug.Log(getRandomEnemyTransformStrategy);
 
         for (int i = 0; i < enemyesCount; i++)
         {
@@ -54,10 +53,6 @@ public class EnemySpawner : MonoBehaviour
     protected void Spawn()
     {
         var enemy = enemyesPool.GetRandomObject();
-
-        Debug.Log(enemy.name + "(Clone)");
-        Debug.Log(enemyPrefabs[0]);
-        Debug.Log(enemyPrefabs[1]);
 
         if (enemy == null)
             Debug.Log("! enemy");

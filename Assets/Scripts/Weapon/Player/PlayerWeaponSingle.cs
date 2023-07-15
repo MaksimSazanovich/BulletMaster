@@ -1,19 +1,24 @@
 using UnityEngine;
+using Zenject.SpaceFighter;
 
 public class PlayerWeaponSingle : PlayerWeaponBase
-{
-    [SerializeField] private Transform bulletStartPosition;
+{     
     protected override void Shoot()
     {
-        var bullet = bulletsPool.GetObject();
-        if (bullet == null)
+        currentBullet = bulletsPool.GetObject();
+        if (currentBullet == null)
             Debug.Log("! billet");
         else
         {
-            bullet.transform.position = bulletStartPosition.position;
-            bullet.transform.Rotate(bulletStartPosition.rotation.eulerAngles);
-            bullet.SetActive(true);
+            InitBullet();
         }
-        
+
+    }
+
+    private void InitBullet()
+    {
+        currentBullet.transform.position = bulletStartPosition.position;
+        currentBullet.transform.Rotate(bulletStartPosition.rotation.eulerAngles);
+        currentBullet.SetActive(true);
     }
 }
