@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+        CheckBoundaries();
+
         if (canMove)
         {
             Move();
@@ -43,7 +45,6 @@ public class PlayerController : MonoBehaviour
 	private void Move()
 	{
 		transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.fixedDeltaTime);
-        CheckBoundaries();
 
 		if (transform.position.x > 0 && isFasingRight)
 			Turn();
@@ -60,9 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         isFasingRight = !isFasingRight;
 
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        transform.Rotate(0, 180, 0);
     }
 
     private void CheckBoundaries()

@@ -8,6 +8,6 @@ public class BulletMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody.velocity = transform.up * speed;
+        rigidbody.velocity = transform.right * speed;
     }
 }
