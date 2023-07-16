@@ -8,8 +8,11 @@ public abstract class BaseBonus : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out PlayerHealth player))
         {
+            Activate();
             OnPicked.Invoke();
             Destroy(gameObject);
         }
     }
+
+    protected abstract void Activate();
 }
