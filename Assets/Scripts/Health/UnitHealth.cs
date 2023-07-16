@@ -1,14 +1,16 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public abstract class UnitHealth : MonoBehaviour, IDamageable
 {
 	[SerializeField] protected int maxHealth;
 	protected int health;
 
-	[SerializeField] protected UnityEvent<int> OnHealthChanged;
+	protected internal event Action<int> OnHealthChanged;
 
-	protected virtual void Start()
+    protected internal event Action OnDie;
+
+    protected virtual void Start()
 	{ 
 		health = maxHealth;
 	}
@@ -22,7 +24,7 @@ public abstract class UnitHealth : MonoBehaviour, IDamageable
 
 		health -= damage;
 
-		OnHealthChanged.Invoke(health); 
+		OnHealthChanged?.Invoke(health); 
 
 		if (health <= 0)
 		{ 
@@ -33,6 +35,7 @@ public abstract class UnitHealth : MonoBehaviour, IDamageable
 
 	public virtual void Die()
 	{
-		Destroy(gameObject);
+        OnDie?.Invoke();
+        gameObject.SetActive(false);
 	}
 }

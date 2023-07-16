@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
 
@@ -17,12 +16,24 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float deltaTime;
     private float nextSpawnTime;
 
+    private PlayerHealth playerHealth;
+
     private GetRandomEnemyTransformStrategyBase getRandomEnemyTransformStrategy;
 
     [Inject]
-    private void Init(EnemyesPool enemyesPool)
+    private void Init(EnemyesPool enemyesPool, PlayerHealth playerHealth)
     {
         this.enemyesPool = enemyesPool;
+        this.playerHealth = playerHealth;
+    }
+    private void OnEnable()
+    {
+        playerHealth.OnDie += Disactivate;
+    }
+
+    private void OnDisable()
+    {
+        playerHealth.OnDie -= Disactivate;
     }
 
     private void Start()
@@ -93,4 +104,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void ChangeStrategyToMeleeEnemy() => ChangeStrategy(new GetRandomMeleeEnemyTransformStrategy());
     private void ChangeStrategyToRangedEnemy() => ChangeStrategy(new GetRandomRangedEnemyTransformStrategy());
+
+    private void Disactivate() => gameObject.SetActive(false);
 }

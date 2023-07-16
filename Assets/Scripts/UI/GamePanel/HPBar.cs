@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class HPBar : MonoBehaviour
 {
@@ -7,7 +8,25 @@ public class HPBar : MonoBehaviour
     [SerializeField] private Sprite isLife;
     [SerializeField] private Sprite nonLife;
 
-	public void Show(int health)
+    private PlayerHealth playerHealth;
+
+    [Inject]
+
+    private void Init(PlayerHealth playerHealth)
+    {
+        this.playerHealth = playerHealth;
+    }
+
+    private void OnEnable()
+    {
+        playerHealth.OnHealthChanged += Show;
+    }
+
+    private void OnDisable()
+    {
+        playerHealth.OnHealthChanged -= Show;
+    }
+    public void Show(int health)
 	{
         for (int i = 0; i < hearts.Length; i++)
         {

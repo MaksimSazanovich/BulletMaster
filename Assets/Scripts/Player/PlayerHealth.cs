@@ -4,4 +4,10 @@ public class PlayerHealth : UnitHealth
 	{
 		base.ApplyDamage(damage);
 	}
+
+	public override void Die()
+	{
+		
+		base.Die();
+	}
 }

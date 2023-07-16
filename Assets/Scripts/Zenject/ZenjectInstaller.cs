@@ -7,6 +7,7 @@ public class ZenjectInstaller : MonoInstaller
     [SerializeField] private GameObject bulletsPool;
     [SerializeField] private GameObject enemyesPool;
     [SerializeField] private GameObject enemyBulletsPool;
+    [SerializeField] private GameObject losePanel;
 
     public override void InstallBindings()
     {
@@ -16,5 +17,7 @@ public class ZenjectInstaller : MonoInstaller
         Container.Bind<EnemyBulletsPool>().FromComponentOn(enemyBulletsPool).AsSingle();
 
         Container.Bind<EnemyesPool>().FromComponentOn(enemyesPool).AsSingle();
+
+        Container.Bind<LosePanel>().FromComponentOn(losePanel).AsSingle();
     }
 }
