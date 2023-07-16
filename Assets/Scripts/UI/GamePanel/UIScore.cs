@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+public class UIScore : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
 

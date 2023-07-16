@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMeleeAttack : EnemyAttack
@@ -8,9 +6,9 @@ public class EnemyMeleeAttack : EnemyAttack
     private float nextAttackTime;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out PlayerHealth playerHealth))
+        if (collision.gameObject.TryGetComponent(out IDamageable damageable))
         {
-            playerHealth.ApplyDamage(damage);
+            damageable.ApplyDamage(damage);
         }
     }
 
@@ -19,9 +17,9 @@ public class EnemyMeleeAttack : EnemyAttack
         nextAttackTime += Time.deltaTime;
         if (nextAttackTime >= timeBetweenAttacks)
         {
-            if (collision.gameObject.TryGetComponent(out PlayerHealth playerHealth))
+            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
             {
-                playerHealth.ApplyDamage(damage);
+                damageable.ApplyDamage(damage);
                 nextAttackTime = 0f;
             }
         }
@@ -29,7 +27,7 @@ public class EnemyMeleeAttack : EnemyAttack
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out PlayerHealth playerHealth))
+        if (collision.gameObject.TryGetComponent(out IDamageable damageable))
         {
             nextAttackTime = 0f;
         }

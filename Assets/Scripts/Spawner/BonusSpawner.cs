@@ -8,6 +8,8 @@ public class BonusSpawner : MonoBehaviour
 
     [SerializeField] GameObject[] bonuses;
 
+    [SerializeField, Inject] private DiContainer container;
+
     private GetRandomTransformStrategyBase getRandomEnemyTransformStrategy;
 
     private void Start()
@@ -27,7 +29,7 @@ public class BonusSpawner : MonoBehaviour
 
     private void SpawnRandomBonus()
     {
-        Instantiate(GetRandomBonus(), getRandomEnemyTransformStrategy.GetRandomTransform(), Quaternion.identity);
+        container.InstantiatePrefab(GetRandomBonus(), getRandomEnemyTransformStrategy.GetRandomTransform(), Quaternion.identity, null);
     }
 
     public void SpawnCoin(Vector3 spawnPosition)
@@ -38,7 +40,7 @@ public class BonusSpawner : MonoBehaviour
     private GameObject GetRandomBonus()
     {
         int index;
-        index = Random.Range(0, bonuses.Length - 1);
+        index = Random.Range(0, bonuses.Length);
         return bonuses[index];
     }
 }

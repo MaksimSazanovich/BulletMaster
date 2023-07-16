@@ -11,7 +11,6 @@ public class HPBar : MonoBehaviour
     private PlayerHealth playerHealth;
 
     [Inject]
-
     private void Init(PlayerHealth playerHealth)
     {
         this.playerHealth = playerHealth;

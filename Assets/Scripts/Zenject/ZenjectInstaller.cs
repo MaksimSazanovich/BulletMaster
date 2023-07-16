@@ -9,6 +9,7 @@ public class ZenjectInstaller : MonoInstaller
     [SerializeField] private GameObject enemyBulletsPool;
     [SerializeField] private GameObject losePanel;
     [SerializeField] private GameObject bonusSpawner;
+    [SerializeField] private GameObject uiExtraLife;
 
     public override void InstallBindings()
     {
@@ -22,5 +23,7 @@ public class ZenjectInstaller : MonoInstaller
         Container.Bind<LosePanel>().FromComponentOn(losePanel).AsSingle();
 
         Container.Bind<BonusSpawner>().FromComponentOn(bonusSpawner).AsSingle();
+
+        Container.Bind<UIExtraLife>().FromComponentOn(uiExtraLife).AsSingle();
     }
 }

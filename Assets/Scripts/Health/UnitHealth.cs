@@ -3,8 +3,11 @@ using UnityEngine;
 
 public abstract class UnitHealth : MonoBehaviour, IDamageable
 {
-	[SerializeField] protected int maxHealth;
-	protected int health;
+	public int MaxHealth => maxHealth;
+    [SerializeField] protected int maxHealth;
+
+	public int Health => health;
+    protected int health;
 
 	protected internal Action<int> OnHealthChanged;
 

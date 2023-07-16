@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7291838657495808897}
   - component: {fileID: 7291838657495808896}
   - component: {fileID: 7291838657495808899}
+  - component: {fileID: 8253875015824815580}
+  - component: {fileID: -1791051405663821302}
   m_Layer: 11
   m_Name: 'ShieldBonus   '
   m_TagString: Untagged
@@ -133,3 +135,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8253875015824815580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291838657495808900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928010677841c7242854ecea8a1d7743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 8868753856286007418, guid: a89a0f32178655f449534b98e580adef, type: 3}
+--- !u!114 &-1791051405663821302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7291838657495808900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be00630843e5eba49a96f0a7d87b2a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 200
