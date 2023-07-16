@@ -6,7 +6,7 @@ public abstract class UnitHealth : MonoBehaviour, IDamageable
 	[SerializeField] protected int maxHealth;
 	protected int health;
 
-	protected internal event Action<int> OnHealthChanged;
+	protected internal Action<int> OnHealthChanged;
 
     protected internal event Action OnDie;
 

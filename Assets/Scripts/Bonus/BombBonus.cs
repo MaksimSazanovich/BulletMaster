@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BombBonus : BaseBonus
@@ -8,7 +6,16 @@ public class BombBonus : BaseBonus
 	[SerializeField] private int attackDamage;
     [SerializeField] private LayerMask enemyLayer;
 
-    protected override void Activate()
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        base.OnCollisionEnter2D(collision);
+        if (collision.gameObject.TryGetComponent(out PlayerHealth player))
+        {
+            Activate();
+        }
+    }
+
+    private void Activate()
 	{
         Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
         foreach (Collider2D damageableObject in hitObjects)
