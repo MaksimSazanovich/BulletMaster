@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 610940363355267827}
   - component: {fileID: 4067659775822635294}
   - component: {fileID: 4192272022531245173}
+  - component: {fileID: -501683745762269040}
   m_Layer: 8
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -209,9 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &-1568884427576385811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +273,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 30
+--- !u!114 &-501683745762269040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7105109866891207460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd174b50c6019d4693ecdb9909f647e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusChance: 0.16666667

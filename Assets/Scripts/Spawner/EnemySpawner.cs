@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     private PlayerHealth playerHealth;
 
-    private GetRandomEnemyTransformStrategyBase getRandomEnemyTransformStrategy;
+    private GetRandomTransformStrategyBase getRandomEnemyTransformStrategy;
 
     [Inject]
     private void Init(EnemyesPool enemyesPool, PlayerHealth playerHealth)
@@ -95,13 +95,13 @@ public class EnemySpawner : MonoBehaviour
         return Random.Range(minEnemyCount, maxEnemyCount);
     }
 
-    private void ChangeStrategy(GetRandomEnemyTransformStrategyBase strategy)
+    private void ChangeStrategy(GetRandomTransformStrategyBase strategy)
     {
         getRandomEnemyTransformStrategy = strategy;
     }
 
     private void ChangeStrategyToMeleeEnemy() => ChangeStrategy(new GetRandomMeleeEnemyTransformStrategy());
-    private void ChangeStrategyToRangedEnemy() => ChangeStrategy(new GetRandomRangedEnemyTransformStrategy());
+    private void ChangeStrategyToRangedEnemy() => ChangeStrategy(new GetRandomTransformInBoundariesOfCameraStrategy());
 
     private void Disactivate() => gameObject.SetActive(false);
 }

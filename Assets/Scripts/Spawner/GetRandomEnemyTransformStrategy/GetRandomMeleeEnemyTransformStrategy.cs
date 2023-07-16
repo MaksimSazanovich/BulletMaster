@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GetRandomMeleeEnemyTransformStrategy : GetRandomEnemyTransformStrategyBase
+public class GetRandomMeleeEnemyTransformStrategy : GetRandomTransformStrategyBase
 {
     public override Vector3 GetRandomTransform(Transform[] spawnPoints)
     {

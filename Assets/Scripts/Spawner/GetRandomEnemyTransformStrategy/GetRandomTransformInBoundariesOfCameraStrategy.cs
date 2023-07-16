@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GetRandomRangedEnemyTransformStrategy : GetRandomEnemyTransformStrategyBase
+public class GetRandomTransformInBoundariesOfCameraStrategy : GetRandomTransformStrategyBase
 {
      private float offset = 0.5f;
     public override Vector3  GetRandomTransform()

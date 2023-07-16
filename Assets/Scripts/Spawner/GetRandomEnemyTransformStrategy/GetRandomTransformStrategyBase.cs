@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GetRandomEnemyTransformStrategyBase : MonoBehaviour
+public class GetRandomTransformStrategyBase : MonoBehaviour
 {
     public virtual Vector3 GetRandomTransform(Transform[] spawnPoints)
     {
