@@ -71,13 +71,11 @@ public class EnemySpawner : MonoBehaviour
         {
             if (enemy.TryGetComponent(out EnemyMeleeAttack enemyMeleeAttack))
             {
-                Debug.Log(enemy.transform.position);
                 ChangeStrategyToMeleeEnemy();
                 enemy.transform.position = getRandomEnemyTransformStrategy.GetRandomTransform(spawnPoints);
             }
             else if (enemy.TryGetComponent(out EnemyRangedAttack enemyRangedAttack))
             {
-                Debug.Log(enemy.transform.position);
                 ChangeStrategyToRangedEnemy();
                 enemy.transform.position = getRandomEnemyTransformStrategy.GetRandomTransform();
             }

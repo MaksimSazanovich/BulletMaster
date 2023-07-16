@@ -9,7 +9,7 @@ public abstract class ObjectScore : MonoBehaviour
 
     public virtual void Activate()
     {
-        Debug.Log("Score");
+        Debug.Log("ObjectScore");
         OnChanged?.Invoke(score);
     }
 }
